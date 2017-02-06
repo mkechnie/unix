@@ -1,0 +1,9 @@
+#! /bin/csh -f
+set t = `stty size`
+
+foreach i ($*)
+isql -w $t[2] -n  -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF
+sp_help $i
+go
+EOF
+end

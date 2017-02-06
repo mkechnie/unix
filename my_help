@@ -1,0 +1,135 @@
+#! /bin/tcsh -f
+set t = `stty size`
+echo " "
+
+$SYBASE/bin/isql -w $t[2] -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF
+        set nocount on
+        declare @obj_type varchar(30)
+        select @obj_type = so.type
+        from sysobjects so
+        where   so.name = '$1'
+
+        if @obj_type = 'U' select @obj_type = 'User Table'
+        if @obj_type = 'V' select @obj_type = 'View'
+
+        select
+                Name=so.name,
+                Owner=su.name,
+                Type=@obj_type
+        from    sysobjects so,
+                sysusers su
+        where   so.name = '$1'
+        and     su.uid = so.uid
+go
+EOF
+echo " "
+
+$SYBASE/bin/isql -w $t[2] -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF | awk '\
+{\
+        if ($2 == "int")  \
+	{ \
+		printf ("[[1m[[32m%-30s[0m", $1); \
+	} else { \
+		if ($2 == "float")  \
+		{ \
+			printf ("[[1m[[31m%-30s[[0m", $1); \
+		} else { \
+			if ($2 == "char")  \
+			{ \
+				printf ("[[1m[[36m%-30s[[0m", $1); \
+			} else { \
+			 	printf ("[[0m%-30s", $1); \
+			} \
+		} \
+	} \
+        printf (" %-15s %-6s %-8s %-7s %s", $2, $3, $4, $5, $6); \
+	printf ("\n");\
+}'
+set nocount on
+select  'Column'=sc.name,
+        'Type' = convert(char(15), st.name),
+        'Length'=sc.length,
+        'Nulls'=case when (convert(bit, (sc.status & 8)) = 1) then 'Null'
+                 else 'Not_Null'
+                 end,
+        'Keys'=convert(char(7), sv.name),
+        'Related Table'=isnull(so2.name, ' ')
+from    syscolumns sc,
+        sysobjects so,
+        sysobjects so2,
+        systypes st,
+        syskeys sk,
+        master.dbo.spt_values sv
+where   so.name = '$1'
+and     sc.id = so.id
+and     sc.usertype *= st.usertype
+and     sc.id = sk.id
+and     (sc.name = col_name(sk.id, key1)
+        or sc.name = col_name(sk.id, key2)
+        or sc.name = col_name(sk.id, key3)
+        or sc.name = col_name(sk.id, key4)
+        or sc.name = col_name(sk.id, key5)
+        or sc.name = col_name(sk.id, key6)
+        or sc.name = col_name(sk.id, key7)
+        or sc.name = col_name(sk.id, key8))
+and     sv.number = sk.type
+and     sv.type = 'K'
+and     so2.id =* sk.depid
+order by sk.type, sc.type
+go
+EOF
+
+$SYBASE/bin/isql -w $t[2] -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF | sed -e '1d' -e '2d' | awk '\
+{\
+        if ($2 == "int")  \
+	{ \
+		printf ("[[1m[[32m%-30s[0m", $1); \
+	} else { \
+		if ($2 == "float")  \
+		{ \
+			printf ("[[1m[[31m%-30s[[0m", $1); \
+		} else { \
+			if ($2 == "char")  \
+			{ \
+				printf ("[[1m[[36m%-30s[[0m", $1); \
+			} else { \
+			 	printf ("[[0m%-30s", $1); \
+			} \
+		} \
+	} \
+        printf (" %-15s %-6s %-7s", $2, $3, $4); \
+	printf ("\n");\
+}'
+set nocount on
+select  'Column Name'=sc.name,
+        'Type' = convert(char(15), st.name),
+        'Length'=sc.length,
+        'Nulls'=case when (convert(bit, (sc.status & 8)) = 1) then 'Null'
+                 else 'Not_Null'
+                 end
+from    syscolumns sc,
+        sysobjects so,
+        systypes st
+where   so.name = '$1'
+and     sc.id = so.id
+and     sc.usertype *= st.usertype
+and	sc.name not in (select sc.name
+		from    syscolumns sc,
+		        sysobjects so,
+        		syskeys sk
+		where   so.name = '$1'
+		and     sc.id = so.id
+		and     sc.id = sk.id
+		and     (sc.name = col_name(sk.id, key1)
+		        or sc.name = col_name(sk.id, key2)
+		        or sc.name = col_name(sk.id, key3)
+		        or sc.name = col_name(sk.id, key4)
+		        or sc.name = col_name(sk.id, key5)
+		        or sc.name = col_name(sk.id, key6)
+		        or sc.name = col_name(sk.id, key7)
+		        or sc.name = col_name(sk.id, key8)))
+		
+order by st.name, sc.status
+go
+EOF
+echo " "

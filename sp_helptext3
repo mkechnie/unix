@@ -1,0 +1,18 @@
+#! /bin/csh -f
+foreach i ($*)
+#isql -n -S$DB_SERVER -U $DB_USER -P $DB_PASSWORD <<EOF |sed -e 's/\r/\n/' | sed -e '1,5d' -e'/ $/{N\
+isql -n -S$DB_SERVER -U $DB_USER -P $DB_PASSWORD <<EOF |sed -e 's/\r/\n/' | sed -e'/ $/{N\
+/ \n/{\
+N\
+s/ \n\n	 //\
+}\
+}'
+
+set nocount on
+select  ""=text
+from    syscomments
+where   id = object_id("$i")
+go
+EOF
+echo "go"
+end

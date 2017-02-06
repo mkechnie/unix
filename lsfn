@@ -1,0 +1,1 @@
+ctags -w $1 ; awk '{ print $1 }' tags

@@ -1,0 +1,4 @@
+toolenv font -*-fixed-*-*-semicondensed-*-12-90-100-*-*-*-*-*
+toolenv srclines 40
+dbxenv lookaside on
+file PjaMain.c

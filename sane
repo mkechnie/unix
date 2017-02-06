@@ -1,0 +1,6 @@
+setenv USER amckechn
+setenv DB_PASSWORD amckechn
+setenv DSQUERY DEAP_ABDEV
+setenv SYBASE /usr/local/sybase4.9.1ebf1440
+a isql  "$SYBASE/bin/isql -U$USER -P$DB_PASSWORD \!*"
+

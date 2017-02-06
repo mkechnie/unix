@@ -1,0 +1,7 @@
+#! /bin/csh -f
+set t = `stty size`
+
+$SYBASE/bin/isql -w $t[2] -n -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF
+select $*
+go
+EOF

@@ -1,0 +1,63 @@
+cat <<"sedscr"  >tmp1.tmp
+s/^\	Description/Description:/
+s/^\	Syntax/Syntax:/
+s/^\	Parameter/Parameter:/
+s/^\	Notes/Notes:/
+s/^\	Example/Example:/
+s/^\	See Also/See Also:/
+s/^\	See also/See Also:/
+s/^\	//
+sedscr
+sed -f tmp1.tmp $1 >tmp.tmp
+rm tmp1.tmp
+awk -f -  tmp.tmp <<"awkscrp"  | fsplit
+BEGIN {
+	date = "03/03/93"
+	keeplines = 0
+	if (section == 0)
+		section = "DEAP Library"
+}
+
+($1 == "Name:") || ($1 == "Name") {
+	cur_line = $0
+	split (cur_line,title)
+	split (title[2],name,"(")
+	printf("@@man3/%s.3\n",name[1]);
+	outfile = sprintf("man3/%s.3",name[1])
+	printf(".TH %s 3API \"%s\" \"\" \"%s\"\n", title[2], date, section) 
+	printf(".SH NAME\n%s\n",name[1]) 
+	keeplines = 1;
+	getline
+	}
+
+$1 == "UIC" {
+	cur_line = $0
+	split (cur_line,title)
+	split (title[2],name,"(")
+	printf("@@man3/%s.3\n",name[1]);
+	outfile = sprintf("man3/%s.3",name[1])
+	printf(".TH %s 3API \"%s\" \"\" \"%s\"\n", title[2], date, section) 
+	printf(".SH NAME\n%s\n",name[1]) 
+	keeplines = 1;
+	getline
+	}
+
+($1 == "Description") || ($1 == "Notes") || ($1 == "Syntax") || ($1 == "Parameters") || ($1 == "Returns") || ($1 == "Example") || ($1 == "See" && $2 == "also") || ($1 == "See" && $2 == "Also") {
+	if(outfile && keeplines)
+		printf(".SH %s\n",$0) 
+	next;
+}
+
+$1 ~ /UIC.*/ {
+	if(outfile && keeplines)
+		printf(".SS %s\n",$0)
+	next;
+}
+
+
+{
+	if(outfile && keeplines)
+		printf("%s\n.br\n", $0) 
+}
+awkscrp
+rm tmp.tmp

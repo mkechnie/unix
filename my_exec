@@ -1,0 +1,15 @@
+#! /bin/sh
+
+if [ $1 = '-w' ] 
+then
+	t=$2
+	shift
+	shift
+else
+	t=`stty size | awk '{printf("%d", $2);}'`
+fi
+
+$SYBASE/bin/isql -w $t -n -s ',' -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF
+exec $*
+go
+EOF

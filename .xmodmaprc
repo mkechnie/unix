@@ -1,0 +1,35 @@
+! File to reassign keys to VT compatible
+! Also defines Gold and Cut keys for All-in-1
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Default Values
+!
+! 0x76      Num Lock
+! 0x77      KP_Divide
+! 0x7E      KP_Multiply
+! 0x84      KP_Subtract
+! 0x66      Backspace
+! 0x64      Delete
+!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+ keycode 0x76 = KP_F1
+ keycode 0x77 = KP_F2
+ keycode 0x7E = KP_F3
+ keycode 0x84 = KP_F4
+ keycode 0x66 = Delete
+ keycode 0x64 = BackSpace 
+ keycode 0x7C = KP_Subtract
+ keycode 0x57 = KP_Seperator
+ keycode 0x37 = Help
+ keycode 0x3F = Menu
+ keycode 0x67 = Find
+ keycode 0x64 = Select
+ keycode 0x6E = Insert
+ keycode 0x65 = Prior
+ keycode 0x6D = Next
+ keycode 0x6F = 0x10000ff00
+ keycode 0x47 = F11
+ keycode 0x4F = F12
+ keycode 0x56 = F13
+ keycode 0x5E = F14
+ keycode 0x2F = F6 F7

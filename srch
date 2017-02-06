@@ -1,0 +1,29 @@
+#! /bin/sh
+
+if [ $1 = '-help' ]
+then
+	echo "Usage: srch [-R] pattern."
+	exit
+fi
+
+if [ $1 = '-R' ]
+then
+	shift
+	a=`pwd`
+
+	for i in `find . -type d -print`
+ 	do
+  		cd $i 
+ 		echo $i
+  		grep $1 *
+ 		cd $a
+ 	done
+else
+	for i in `ls`
+	do
+		cd $i
+		echo $i
+		grep $1 *
+		cd ..
+	done
+fi

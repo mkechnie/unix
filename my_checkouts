@@ -1,0 +1,4 @@
+#! /bin/sh
+dir=`cygpath -a -w -l .`
+echo $dir
+cleartool lscheckout -fmt "%n@%f\n" -me -rec $dir | sed -e 's/^.*Swaps.ptp.//'

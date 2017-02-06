@@ -1,0 +1,1 @@
+ctags -x $1 | grep -v "#define" | sed -e 's/^.*'$1'[ ]*/'$2' /'

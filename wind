@@ -1,0 +1,6 @@
+#! /bin/csh -f
+set col=$1
+set count=`ps | grep xterm | grep -c $col`
+@ count = $count + 1
+shift
+xterm -geometry 90x40 -bg $col -n "$col $count" -T "$col $count" -sb -sl 2000 -j -ms Red -si -s -sk -ut $*

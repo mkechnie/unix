@@ -1,0 +1,7 @@
+#! /bin/sh
+dir=`cygpath -a -w -l .`
+echo $dir
+cleartool <<-EOF  | sed -e 's/^.*Swaps.ptp.//'
+	find $dir -print -version 'DefectNumber=="$1"'
+	quit
+EOF

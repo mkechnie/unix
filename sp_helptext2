@@ -1,0 +1,14 @@
+#! /bin/csh -f
+set t = `stty size`
+
+foreach i ($*)
+isql -w $t[2] -n  -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF | sed -e '1d' -e '2d' -e '3d' -e '4d'| tr "\n" "|" | sed -e 's/ ||\t //g'|tr "|" "\n"
+set nocount on
+select  ""=text
+from    syscomments
+where   id = object_id("$i")
+go
+EOF
+echo "go"
+end
+#isql -w $t[2] -n  -S $DB_SERVER -D $DB_DB -U $DB_USER -P $DB_PASSWORD <<EOF | awk '{printf("%s", $0);}' | sed -e 's/\r/\n/g' -e 's/^\n *\n\n\t -*---- \n\n\t //' -e 's/ \n\n\t //g'

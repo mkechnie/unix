@@ -1,0 +1,260 @@
+!
+! Default resource settings
+! Done by WBH 30/5/91
+!
+Task_Bar.clientDecoration:   none
+task_bar.clientDecoration:   none
+vdi*CommandWindow*background: Blue
+XVnews.highlight:
+XVnews.textcolor:
+XVnews.textback:
+XVnews.postEditor:
+XVnews.saveFilter:
+!XVnews.logFile: /usr3/andys/news.record
+XVnews.Indent:  >
+XVnews.sortSubjects:    1
+XVnews.listfont:        -1
+XVnews.Rescan:  15
+XVnews.SearchDefault:   2
+XVnews.NextDefault:     2
+XVnews.PrevDefault:     2
+XVnews.listfontsize:    2
+XVnews.displaysize:     9
+XVnews.textfontsize:    3
+XVnews.textfont:        0
+XVnews.background:      #9b74df23c822
+XVnews.Header:  0
+
+XLock.rotor.delay:  6000000
+XLock.life.delay:   6000000
+XLock.blank.delay:  6000000
+XLock.qix.delay:    6000000
+XLock.flame.delay:  6000000
+XLock.pyro.delay:   6000000
+XLock.swarm.delay:  6000000
+XLock.hop.delay:    6000000
+XLock.image.delay:  6000000
+XLock*delay:    6000000
+XLock*nice: 125
+XLock.allowaccess:  True
+XLock.mode: life
+
+! 
+! DO NOT REMOVE THIS LINE !!!
+Mwm*buttonBindings: DefaultButtonBindings
+!
+! Others 
+!
+!Mwm*iconPlacement: bottom left
+!Mwm*clientAutoPlace: true
+Mwm*keyboardFocusPolicy: pointer
+!Mwm*interactivePlacement: false
+Mwm*iconAutoPlace: true
+Mwm*positionIsFrame: false
+Mwm*fadeNormalIcon: true
+Mwm*iconGravity: right bottom
+Mwm*imaker*iconPlacement: right bottom
+
+imaker*iconPlacement: right bottom
+Imaker*IconPlacement: right bottom
+!xterm*font: 9x15bold
+!xterm*font: fixed
+xterm*font: -*-fixed-*-*-semicondensed-*-12-90-100-*-*-*-*-*
+!xterm*pointerShape: spider
+xterm*cursorColor: red
+xterm*iconImage: saturn.bit
+xterm*iconImageBackground: white
+xterm*iconImageForeground: white
+xterm*charClass: 33:48,37:48,45-46:48
+! Build keyboard short cuts in xterm 
+!*VT100.translations: \
+!	<Key>F5: keymap(None) \n\
+!	<Key>F6: string("next") \n\
+!	<KeyDown>: insert() \n\
+!	<KeyUp>: \n\
+!	<ButtonPress>: \n\
+!	<ButtonRelease>: \n\
+!	<Btn1Down>: \n\
+!	<Btn2Down>: \n\
+!	<Btn3Down>: \n\
+!	<Btn1Up>: \n\
+!	<Btn2Up>: \n\
+!	<Btn3Up>: \n\
+!	<MotionNotify>: \n\
+!	<BtnMotion>: \n\
+!	<Btn1Motion>: \n\
+!	<Btn2Motion>: \n\
+!	<Btn3Motion>: \n
+
+sgks.AutoResize: ON
+sgks.UseServerBackingStore: OFF
+xclock*font:  -*-times-bold-r-*-*-*-120-*-*-*-*-*-*
+mailtool*font:  -*-times-medium-r-*-*-*-120-*-*-*-*-*-*
+
+*XmText*Translations:#override\n\
+	Ctrl<KeyPress>h:Help()
+
+OpenWindows.MultiClickTimeout:  4
+OpenWindows.Beep:       always
+OpenWindows.SetInput:   follow
+OpenWindows.ScrollbarPlacement: right
+OpenWindows.PopupJumpCursor:    True
+OpenWindows.WorkspaceColor:     #40a0c0
+OpenWindows.IconLocation:       left
+OpenWindows.SelectDisplaysMenu: False
+OpenWindows.WindowColor:        #cccccc
+OpenWindows.DragRightDistance:  100
+OpenWindows.RefreshRecursively: False
+
+!
+! RUNNER
+!
+RUN*foreground: yellow
+RUN*background: SteelBlue
+RUN*borderColor: SteelBlue
+RUN*XmList*background: turquoise
+RUN*XmList*foreground: black
+RUN*XmPushButton*background: LightSteelBlue
+RUN*Run_Com_Csd.background: LightSteelBlue
+RUN*Run_Com_Csd.foreground: black
+RUN*Run_Go_Csd.background: LightSteelBlue
+RUN*Run_Go_Csd.foreground: black
+RUN*XmPushButton*foreground: black
+RUN*XmTextfield*background: #ceb8e75be75b
+RUN*XmTextfield*foreground: black
+RUN*XmText*background: #ceb8e75be75b
+RUN*XmText*foreground: black
+
+!
+! Down to personal taste
+!
+!Mwm*fontList:  -*-lucida-bold-r-*-*-*-120-*-*-*-*-*-*
+!Mwm*fontList:  -*-courier-*-*-*-*-*-140-*-*-*-*-*-*
+Mwm*fontList:  -*-times-bold-r-*-*-*-140-*-*-*-*-*-*
+Mwm*background: SeaGreen3
+Mwm*foreground: DarkSlateBlue
+Mwm*activeBackground: SeaGreen4
+Mwm*activeForeground: aquamarine1
+Mwm*XClock.clientDecoration:   none
+Mwm*xv.clientDecoration:   none
+Mwm*xload.clientDecoration:   none
+Mwm*xbiff.clientDecoration:   none
+Mwm*xmail.clientDecoration:   none
+Mwm*concentration*background: NavyBlue
+Mwm*concentration*foreground: PeachPuff
+
+Clock*Background: grey
+Clock*BorderColor: light blue
+Clock*hour: yellow
+Clock*jewel: yellow
+Clock*minute: yellow
+Clock*focusAutoRaise: True
+! Colours done in rgb just in case your colour database is weird 
+
+! Application resources 
+*rpt_txt_ara_wgt.fontList: -adobe-courier-medium-r-normal--*-140-*-*-*-*-*-*
+
+! Help Key
+*helpKey: <Key>F1
+!*helpKey: <Key>Help
+
+!*background: white 
+!*background: #9b74df23c822
+!*XmPushButton*background: LightSteelBlue 
+!*XmDrawingArea*background: OldLace 
+!*XmMenuShell*background:	grey80 
+!*background: OldLace
+
+*XmToggleButtonGadget.selectColor:     Purple
+*XmToggleButtonGadget.fillOnSelect:    true
+*XmToggleButton.selectColor:   Purple
+*XmToggleButton.fillOnSelect:  true
+
+*XmSeparator.margin:   0
+*XmFrame.shadowType:   Shadow_Etched_In
+*fontList: -adobe-times-medium-r-normal--14-140-75-75-p-74-iso8859-1
+
+! Darkish green
+*XmScale.background: #6665cdccaaa7
+*XmScrollBar.background: #6665cdccaaa7
+*XmSeparator.background: #6665cdccaaa7
+*XmArrowButton.background: #6665cdccaaa7
+
+*XmScale.topShadowColor: #fffeffffffff
+*XmScale.bottomShadowColor: #293b7e2a614c
+*XmScrollBar.topShadowColor: #fffeffffffff
+*XmScrollBar.bottomShadowColor: #293b7e2a614c
+*XmSeparator.topShadowColor: #fffeffffffff
+*XmSeparator.bottomShadowColor: #293b7e2a614c
+*XmArrowButton.topShadowColor: #fffeffffffff
+*XmArrowButton.bottomShadowColor: #293b7e2a614c
+
+!*borderColor: DodgerBlue
+*borderColor: peach puff
+*XmText*borderColor: DarkOrange
+
+! Lightish green
+*XmForm.background: #9b74df23c822
+*XmBulletinBoard.background: #9b74df23c822
+*XmPanedWindow.background: #9b74df23c822
+*XmDrawingArea.background: #9b74df23c822
+*XmLabel.background: #9b74df23c822
+*XmRowColumn.background: #9b74df23c822
+*XmToggleButton.background: #9b74df23c822
+*XmMessageBox.background: #9b74df23c822
+*XmSelectionBox.background: #9b74df23c822
+*XmFileSelectionBox.background: #9b74df23c822
+*XmScrolledWindow.background: #9b74df23c822
+*XmFrame.background: #9b74df23c822
+
+! Light green
+*XmPushButton.background: #d083f07ae59d
+*XmDrawnButton.background: #d083f07ae59d
+*XmCascadeButton.background: #d083f07ae59d
+*XmMenuShell*background: #d083f07ae59d
+
+! Pale blue for DEAP
+!*XmText*background: #a4a4d3d4eeed
+!*XmList*background: #b0afe2e3fffe
+!*XmList*background: OldLace
+*XmList*background: turquoise
+
+! Light green
+
+
+! Light Green for Contrast Printing in Framemaker
+!*XmText*background: #d083f07ae59d
+*XmText*background: yellow
+XmDrawingArea.background: #9b9bdfdfc8c8
+
+! Generated by X-Designer
+
+! Vid_Shl
+ *Vid_Shl.title: DEAP Version
+
+! Vid_Frm
+
+! Vid_Nts_Txt
+
+! Vid_Ok_Btn
+ *Vid_Ok_Btn.labelString: OK
+
+! Vid_Vrs_Lbl
+ *Vid_Vrs_Lbl.labelString: DEAP Version
+
+! Vid_Wrt_Lbl
+ *Vid_Wrt_Lbl.labelString: Written by
+
+! Vid_Nts_Lbl
+ *Vid_Nts_Lbl.labelString: Notes:
+
+!
+! 
+!	Reasonable fonts for SQL Debug
+!
+!SQLDebug*fontList:			9x15bold
+!SQLDebug*clform_win*fontList:		7x13bold
+!*DebInspector*fontList:          	7x13bold
+!*DebInspector*buttonFontList:		7x13bold
+
+
