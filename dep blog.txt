@@ -1,0 +1,25 @@
+Blog: distinguished engineer programme
+
+Back in March I attended a talk on HSBC's distinguished engineer programme (DEP). As one of the few pure developers who attended (i.e. I have no direct reports) I found I disagreed fundamentaly
+with everything in the talk. The problem is that although notionally the programme exists to recognise and promote outstanding developers without moving them to management, this is in fact exactly
+what the programme does. For example, a potential candiate would be sent on management courses. Surely the whole point is to keep the developer doing what they are good at and not retrain them?
+Let's use logic to look at this - reductio ad absurdum, if you were planning to promote a manager would you send them on a java programming course? Everything that was talked about involved changing
+developers before promoting them. It's worth pointing out that almost no developers (i.e. those who should be interested in such a talk) attended - they have all seen this sort of thing before. There's
+a general cynicsim amongst developers that firstly you can't get promoted as developer, and that secondly all managers get promoted eventually regardless of talent. 
+
+So what to do about it? There are several things to consider:
+1. must have developer buy in
+2. must recognise outstanding developers and promote them without changing what they do.
+3. must recongise that your best developer is not necessarily the most noticable dev in the team.
+
+So why not use a system that has been in popular use for several decades? Why not use AD&D experience points? It is specifically designed to measure experience and additionally, helps you build balanced teams. 
+So for acheiving a particular goal you aware points, and when a dev reaches a certain score they would level up, i.e. get promoted. Just for fun you could reward with imaginary bonus objects as well.
+so, for example, successfully delivering a system could get a developer 1000 exp points and an axe of programming +1. I think that you would have immediate devloper buy in. The tricky bit in these
+sort of things is recognising that your best developer may not be you most noticable one. But they should associated with most successful projects, so by awarding points like this, they should float
+to the top. If you really want devs to do management courses, you can award points (and possibly a +3 cloak of management) for attending as well. 
+
+If you want to extend this, why not use AD&D style character attributes for EOY rankings? If you were to create a list of attributes for each person in your team and score them from 3 to 18, you
+could imediately see who is good at what. In addition you could build teams by combining people with different attributes to build a good team. After this is what happens in a good AD&D adventure
+team. 
+
+And instead of boring titles like developer, senior dev, etc. use levels! Don't talk about promotion, instead talking about leveling up. 
